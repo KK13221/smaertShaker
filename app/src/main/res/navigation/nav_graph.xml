@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         Screen 1 — Welcome
+         ══════════════════════════════════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.smartshake.vending.ui.WelcomeFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_welcome">
+
+        <action
+            android:id="@+id/action_welcome_to_flavour"
+            app:destination="@id/flavourFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         Screen 2 — Choose Your Flavour
+         ══════════════════════════════════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/flavourFragment"
+        android:name="com.smartshake.vending.ui.FlavourFragment"
+        android:label="Choose Flavour"
+        tools:layout="@layout/fragment_flavour">
+
+        <action
+            android:id="@+id/action_flavour_to_base"
+            app:destination="@id/baseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         Screen 3 — Choose Your Base
+         ══════════════════════════════════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/baseFragment"
+        android:name="com.smartshake.vending.ui.BaseFragment"
+        android:label="Choose Base"
+        tools:layout="@layout/fragment_base">
+
+        <action
+            android:id="@+id/action_base_to_payment"
+            app:destination="@id/paymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         Screen 4 — Payment
+         ══════════════════════════════════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.smartshake.vending.ui.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment">
+
+        <!-- Optional: navigate back to Welcome and reset the order -->
+        <action
+            android:id="@+id/action_payment_to_welcome"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+
+</navigation>

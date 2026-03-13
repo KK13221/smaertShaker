@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Order row item for Payment screen RecyclerView -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/order_row_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="@dimen/ss_order_item_gap">
+
+    <ImageView
+        android:id="@+id/iv_item_image"
+        android:layout_width="@dimen/ss_order_img_size"
+        android:layout_height="@dimen/ss_order_img_size"
+        android:scaleType="centerCrop"
+        android:background="@drawable/bg_order_img"
+        android:clipToOutline="true"
+        android:contentDescription="@null"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:textSize="@dimen/ss_order_text_size"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/ss_text_primary"
+        tools:text="Chocolate" />
+
+    <!-- Counter [−][n][+] -->
+    <LinearLayout
+        android:id="@+id/ll_order_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <ImageButton
+            android:id="@+id/btn_order_decrease"
+            android:layout_width="@dimen/ss_order_counter_btn_size"
+            android:layout_height="@dimen/ss_order_counter_btn_size"
+            android:src="@drawable/ic_minus_dark"
+            android:background="@drawable/bg_order_counter_btn"
+            android:scaleType="center"
+            android:padding="3dp"
+            android:contentDescription="@string/cd_minus_btn" />
+
+        <TextView
+            android:id="@+id/tv_order_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ss_order_counter_gap"
+            android:layout_marginEnd="@dimen/ss_order_counter_gap"
+            android:text="1"
+            android:textSize="@dimen/ss_order_counter_value_size"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@color/ss_text_primary"
+            android:gravity="center"
+            android:minWidth="20dp"
+            tools:text="1" />
+
+        <ImageButton
+            android:id="@+id/btn_order_increase"
+            android:layout_width="@dimen/ss_order_counter_btn_size"
+            android:layout_height="@dimen/ss_order_counter_btn_size"
+            android:src="@drawable/ic_plus_dark"
+            android:background="@drawable/bg_order_counter_btn"
+            android:scaleType="center"
+            android:padding="3dp"
+            android:contentDescription="@string/cd_plus_btn" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="@dimen/ss_order_price_size"
+        android:fontFamily="@font/inter_regular"
+        android:textColor="@color/ss_text_primary"
+        tools:text="₹ 99" />
+
+    <ImageButton
+        android:id="@+id/btn_remove"
+        android:layout_width="@dimen/ss_close_btn_size"
+        android:layout_height="@dimen/ss_close_btn_size"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_close"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/cd_remove_item" />
+</LinearLayout>

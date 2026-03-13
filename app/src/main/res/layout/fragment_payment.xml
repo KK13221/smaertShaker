@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SCREEN 4 — Payment · Figma 1:537 · 3-column panel layout -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_payment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ss_background">
+
+    <include android:id="@+id/include_logo" layout="@layout/view_logo_chip"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- "Payment" in #BBF172 green -->
+    <TextView
+        android:id="@+id/tv_payment_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ss_content_top"
+        android:text="@string/payment_heading"
+        android:textSize="@dimen/ss_payment_title_size"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/ss_green"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_payment_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/payment_subtitle"
+        android:textSize="@dimen/ss_payment_subtitle_size"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/ss_text_primary"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_payment_title" />
+
+    <!-- 3-column panels row -->
+    <LinearLayout
+        android:id="@+id/ll_panels"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/ss_screen_padding_h"
+        android:layout_marginEnd="@dimen/ss_screen_padding_h"
+        android:layout_marginTop="@dimen/ss_panel_top_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_payment_subtitle"
+        app:layout_constraintBottom_toTopOf="@id/ll_bottom_bar">
+
+        <!-- LEFT PANEL: Orders (weight 0.49) -->
+        <LinearLayout
+            android:id="@+id/panel_order"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.49"
+            android:orientation="vertical"
+            android:padding="@dimen/ss_panel_padding"
+            android:background="@drawable/bg_panel"
+            android:clipToOutline="true">
+
+            <TextView android:id="@+id/tv_section_flavours"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/payment_section_flavours"
+                android:textSize="@dimen/ss_panel_title_size"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_green" tools:text="Flavours" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:layout_marginTop="6dp" android:layout_marginBottom="6dp"
+                android:background="@color/ss_separator_white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_order_flavours"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_order_row"
+                tools:itemCount="3" />
+
+            <TextView android:id="@+id/tv_section_base"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/payment_section_base"
+                android:textSize="@dimen/ss_panel_title_size"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_green" tools:text="Base" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:layout_marginTop="6dp" android:layout_marginBottom="6dp"
+                android:background="@color/ss_separator_white" />
+
+            <!-- Base row (single, no counter) -->
+            <LinearLayout android:id="@+id/ll_base_item"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <ImageView android:id="@+id/iv_base_image"
+                    android:layout_width="@dimen/ss_order_img_size"
+                    android:layout_height="@dimen/ss_order_img_size"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_order_img"
+                    android:clipToOutline="true"
+                    android:contentDescription="@null"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView android:id="@+id/tv_base_name"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="12dp"
+                    android:text="@string/base_milk"
+                    android:textSize="@dimen/ss_order_text_size"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/ss_text_primary" tools:text="Milk" />
+
+                <TextView android:id="@+id/tv_base_price"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp" android:text="₹ 20"
+                    android:textSize="@dimen/ss_order_price_size"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/ss_text_primary" tools:text="₹ 20" />
+
+                <ImageButton android:id="@+id/btn_remove_base"
+                    android:layout_width="@dimen/ss_close_btn_size"
+                    android:layout_height="@dimen/ss_close_btn_size"
+                    android:layout_marginStart="8dp"
+                    android:src="@drawable/ic_close"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/cd_remove_item" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Space android:layout_width="@dimen/ss_panel_gap" android:layout_height="match_parent" />
+
+        <!-- CENTER PANEL: Nutrition (weight 0.22) -->
+        <LinearLayout
+            android:id="@+id/panel_nutrition"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.22"
+            android:orientation="vertical"
+            android:padding="@dimen/ss_panel_padding"
+            android:background="@drawable/bg_panel"
+            android:clipToOutline="true">
+
+            <TextView android:id="@+id/tv_nutrition_title"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/payment_nutrition_title"
+                android:textSize="@dimen/ss_panel_title_size"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_green" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:layout_marginTop="6dp" android:layout_marginBottom="10dp"
+                android:background="@color/ss_separator_gray" />
+
+            <!-- Column headers -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="@string/payment_nutrient_col"
+                    android:textSize="@dimen/ss_nutrition_text_size" android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/ss_text_primary" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="@string/payment_values_col"
+                    android:textSize="@dimen/ss_nutrition_text_size" android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/ss_text_primary" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:layout_marginTop="4dp" android:layout_marginBottom="4dp"
+                android:background="@color/ss_separator_gray" />
+
+            <include android:id="@+id/row_calories" layout="@layout/view_nutrition_row"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include android:id="@+id/row_protein" layout="@layout/view_nutrition_row"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include android:id="@+id/row_carbs" layout="@layout/view_nutrition_row"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include android:id="@+id/row_fat" layout="@layout/view_nutrition_row"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include android:id="@+id/row_fibre" layout="@layout/view_nutrition_row"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <include android:id="@+id/row_sugar" layout="@layout/view_nutrition_row"
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Space android:layout_width="@dimen/ss_panel_gap" android:layout_height="match_parent" />
+
+        <!-- RIGHT PANEL: Scan & Pay (weight 0.19) -->
+        <LinearLayout
+            android:id="@+id/panel_payment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.19"
+            android:orientation="vertical"
+            android:padding="@dimen/ss_panel_padding"
+            android:background="@drawable/bg_panel"
+            android:clipToOutline="true">
+
+            <TextView android:id="@+id/tv_scan_title"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/payment_scan_title"
+                android:textSize="@dimen/ss_scan_title_size"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_green"
+                android:gravity="center" />
+
+            <!-- QR code: replace src with @drawable/img_qr_code -->
+            <ImageView android:id="@+id/iv_qr_code"
+                android:layout_width="@dimen/ss_qr_size"
+                android:layout_height="@dimen/ss_qr_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_qr_frame"
+                android:padding="@dimen/ss_qr_padding"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/cd_qr_code"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <!-- Payment badges -->
+            <LinearLayout android:id="@+id/ll_payment_badges"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal" android:gravity="center_vertical">
+
+                <ImageView android:id="@+id/badge_visa"
+                    android:layout_width="@dimen/ss_payment_badge_width"
+                    android:layout_height="@dimen/ss_payment_badge_height"
+                    android:background="@drawable/bg_payment_badge"
+                    android:scaleType="fitCenter" android:padding="4dp"
+                    android:contentDescription="Visa" />
+                <Space android:layout_width="@dimen/ss_payment_badge_gap" android:layout_height="wrap_content" />
+                <ImageView android:id="@+id/badge_amex"
+                    android:layout_width="@dimen/ss_payment_badge_width"
+                    android:layout_height="@dimen/ss_payment_badge_height"
+                    android:background="@drawable/bg_payment_badge_amex"
+                    android:scaleType="fitCenter" android:padding="4dp"
+                    android:contentDescription="Amex" />
+                <Space android:layout_width="@dimen/ss_payment_badge_gap" android:layout_height="wrap_content" />
+                <ImageView android:id="@+id/badge_gpay"
+                    android:layout_width="@dimen/ss_payment_badge_width"
+                    android:layout_height="@dimen/ss_payment_badge_height"
+                    android:background="@drawable/bg_payment_badge"
+                    android:scaleType="fitCenter" android:padding="4dp"
+                    android:contentDescription="Google Pay" />
+                <Space android:layout_width="@dimen/ss_payment_badge_gap" android:layout_height="wrap_content" />
+                <ImageView android:id="@+id/badge_applepay"
+                    android:layout_width="@dimen/ss_payment_badge_width"
+                    android:layout_height="@dimen/ss_payment_badge_height"
+                    android:background="@drawable/bg_payment_badge"
+                    android:scaleType="fitCenter" android:padding="4dp"
+                    android:contentDescription="Apple Pay" />
+            </LinearLayout>
+
+            <!-- Push summary to bottom -->
+            <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+
+            <!-- Order Summary -->
+            <TextView android:id="@+id/tv_order_summary_title"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/payment_order_summary"
+                android:textSize="@dimen/ss_summary_title_size"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_text_primary" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:layout_marginTop="6dp" android:layout_marginBottom="6dp"
+                android:background="@color/ss_separator_white" />
+
+            <!-- Subtotal -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="@dimen/ss_summary_row_gap">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="@string/payment_subtotal" android:textSize="@dimen/ss_summary_text_size"
+                    android:fontFamily="@font/poppins_regular" android:textColor="@color/ss_text_secondary" />
+                <TextView android:id="@+id/tv_subtotal_value"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="₹ 317" android:textSize="@dimen/ss_summary_text_size"
+                    android:fontFamily="@font/inter_regular" android:textColor="@color/ss_text_primary"
+                    tools:text="₹ 317" />
+            </LinearLayout>
+
+            <!-- Tax -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="@dimen/ss_summary_row_gap">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="@string/payment_tax" android:textSize="@dimen/ss_summary_text_size"
+                    android:fontFamily="@font/poppins_regular" android:textColor="@color/ss_text_secondary" />
+                <TextView android:id="@+id/tv_tax_value"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="₹ 13" android:textSize="@dimen/ss_summary_text_size"
+                    android:fontFamily="@font/inter_regular" android:textColor="@color/ss_text_primary"
+                    tools:text="₹ 13" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:layout_marginBottom="6dp" android:background="@color/ss_separator_white" />
+
+            <!-- Total (bold) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                    android:text="@string/payment_total" android:textSize="@dimen/ss_summary_total_size"
+                    android:fontFamily="@font/poppins_semibold" android:textColor="@color/ss_text_primary" />
+                <TextView android:id="@+id/tv_total_value"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="₹ 330" android:textSize="@dimen/ss_summary_total_size"
+                    android:fontFamily="@font/poppins_semibold" android:textColor="@color/ss_text_primary"
+                    tools:text="₹ 330" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom bar: Back button only -->
+    <LinearLayout
+        android:id="@+id/ll_bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ss_bottom_bar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/ss_screen_padding_h"
+        android:paddingEnd="@dimen/ss_screen_padding_h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button android:id="@+id/btn_back"
+            android:layout_width="@dimen/ss_btn_min_width"
+            android:layout_height="@dimen/ss_btn_height"
+            android:text="@string/btn_back"
+            android:textColor="@color/ss_white"
+            android:background="@drawable/bg_button_outline_green"
+            android:stateListAnimator="@null"
+            style="@style/SS.Button.Base" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

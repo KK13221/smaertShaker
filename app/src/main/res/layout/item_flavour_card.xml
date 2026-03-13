@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Flavour card item · 175×235dp · #FCE6C4 bg · Image + wave + name + counter -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_root"
+    android:layout_width="@dimen/ss_card_width"
+    android:layout_height="@dimen/ss_card_height"
+    android:background="@drawable/bg_card_shape"
+    android:clipToOutline="true">
+
+    <!-- Food photo -->
+    <ImageView
+        android:id="@+id/iv_flavour_image"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ss_card_image_height"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="#8B3A3A" />
+
+    <!-- Wave overlay at bottom of image -->
+    <ImageView
+        android:id="@+id/iv_wave"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:src="@drawable/wave_card_bottom"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_flavour_image" />
+
+    <!-- Price badge — top-right overlay -->
+    <TextView
+        android:id="@+id/tv_price_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ss_price_badge_margin"
+        android:layout_marginEnd="@dimen/ss_price_badge_margin"
+        android:background="@drawable/bg_price_badge"
+        android:paddingStart="@dimen/ss_price_badge_padding_h"
+        android:paddingEnd="@dimen/ss_price_badge_padding_h"
+        android:paddingTop="@dimen/ss_price_badge_padding_v"
+        android:paddingBottom="@dimen/ss_price_badge_padding_v"
+        android:text="₹ 99"
+        android:textColor="@color/ss_chocolate_text"
+        android:textSize="@dimen/ss_price_badge_text"
+        android:fontFamily="@font/reddit_sans_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="₹ 99" />
+
+    <!-- Card body: name + counter -->
+    <LinearLayout
+        android:id="@+id/ll_card_body"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/ss_card_padding_h"
+        android:paddingEnd="@dimen/ss_card_padding_h"
+        android:paddingTop="8dp"
+        android:paddingBottom="@dimen/ss_card_padding_v"
+        android:background="@color/ss_card_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_flavour_image"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Flavour name — textColor set in Kotlin per flavour -->
+        <TextView
+            android:id="@+id/tv_flavour_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/flavour_chocolate"
+            android:textSize="@dimen/ss_card_name_size"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/ss_chocolate_text"
+            android:gravity="center"
+            tools:text="Chocolate" />
+
+        <!-- Counter: [−] [qty] [+] -->
+        <LinearLayout
+            android:id="@+id/ll_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btn_decrease"
+                android:layout_width="@dimen/ss_counter_btn_size"
+                android:layout_height="@dimen/ss_counter_btn_size"
+                android:src="@drawable/ic_minus"
+                android:background="@drawable/bg_counter_btn"
+                android:scaleType="center"
+                android:padding="0dp"
+                android:contentDescription="@string/cd_minus_btn" />
+
+            <TextView
+                android:id="@+id/tv_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ss_counter_gap"
+                android:layout_marginEnd="@dimen/ss_counter_gap"
+                android:text="0"
+                android:textSize="@dimen/ss_counter_value_size"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/ss_chocolate_text"
+                android:gravity="center"
+                android:minWidth="20dp"
+                tools:text="0" />
+
+            <ImageButton
+                android:id="@+id/btn_increase"
+                android:layout_width="@dimen/ss_counter_btn_size"
+                android:layout_height="@dimen/ss_counter_btn_size"
+                android:src="@drawable/ic_plus"
+                android:background="@drawable/bg_counter_btn"
+                android:scaleType="center"
+                android:padding="0dp"
+                android:contentDescription="@string/cd_plus_btn" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

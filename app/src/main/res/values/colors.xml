@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Backgrounds -->
+    <color name="ss_background">#1B1D1A</color>
+    <color name="ss_surface">#242624</color>
+    <!-- Brand Green — exact from Figma #BBF172 -->
+    <color name="ss_green">#BBF172</color>
+    <!-- Card / Cream — exact from Figma #FCE6C4 -->
+    <color name="ss_card_bg">#FCE6C4</color>
+    <!-- Text -->
+    <color name="ss_text_primary">#F0EFE3</color>
+    <color name="ss_text_secondary">#B6B6B6</color>
+    <color name="ss_text_muted">#CCCCCC</color>
+    <color name="ss_white">#FFFFFF</color>
+    <!-- Flavour name text colors — exact from Figma -->
+    <color name="ss_chocolate_text">#5E1706</color>
+    <color name="ss_vanilla_text">#5E1706</color>
+    <color name="ss_banana_text">#194C00</color>
+    <color name="ss_strawberry_text">#670105</color>
+    <color name="ss_coffee_text">#270700</color>
+    <!-- Buttons -->
+    <color name="ss_btn_inactive">#626262</color>
+    <color name="ss_btn_inactive_text">#000000</color>
+    <!-- Panels -->
+    <color name="ss_panel_border">#5C5C5C</color>
+    <!-- Separators -->
+    <color name="ss_separator_white">#1AFFFFFF</color>
+    <color name="ss_separator_gray">#1AC9C9C9</color>
+    <!-- Counter button bg: rgba(245,245,245,0.20) -->
+    <color name="ss_counter_btn_bg">#33F5F5F5</color>
+    <!-- Payment badges -->
+    <color name="ss_visa_bg">#F0EFE3</color>
+    <color name="ss_amex_bg">#1F72CD</color>
+    <color name="ss_badge_border">#D9D9D9</color>
+    <!-- Base card states -->
+    <color name="ss_base_selected_bg">#BBF172</color>
+    <color name="ss_base_normal_bg">#F0EFE3</color>
+    <!-- Order item img bg -->
+    <color name="ss_order_img_bg">#F0EFE3</color>
+    <color name="ss_transparent">#00000000</color>
+</resources>
