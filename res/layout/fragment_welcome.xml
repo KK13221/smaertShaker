@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SCREEN 1 — Welcome · Figma node 1:156 · #1B1D1A bg · Left 52% text + Right 48% illustration -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_welcome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ss_background">
+
+    <!-- Vertical guideline at 52% -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.52" />
+
+    <!-- LEFT: Text content -->
+    <LinearLayout
+        android:id="@+id/ll_welcome_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/ss_welcome_padding_start"
+        android:paddingEnd="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/gl_center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.45">
+
+        <!-- "SMARTSHAKE" -->
+        <TextView
+            android:id="@+id/tv_brand_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_brand"
+            android:textColor="@color/ss_white"
+            android:textSize="@dimen/ss_welcome_title_size"
+            android:fontFamily="@font/poppins_semibold"
+            android:letterSpacing="-0.02" />
+
+        <!-- "VENDING" green badge -->
+        <TextView
+            android:id="@+id/tv_vending_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/welcome_vending"
+            android:textColor="@color/ss_background"
+            android:textSize="@dimen/ss_welcome_vending_size"
+            android:fontFamily="@font/poppins_semibold"
+            android:background="@color/ss_green"
+            android:paddingStart="@dimen/ss_welcome_vending_padding_h"
+            android:paddingEnd="@dimen/ss_welcome_vending_padding_h"
+            android:paddingTop="@dimen/ss_welcome_vending_padding_v"
+            android:paddingBottom="@dimen/ss_welcome_vending_padding_v" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tv_welcome_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ss_welcome_gap_subtitle"
+            android:text="@string/welcome_subtitle"
+            android:textColor="@color/ss_text_muted"
+            android:textSize="@dimen/ss_welcome_subtitle_size"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold" />
+
+        <!-- CTA Button -->
+        <Button
+            android:id="@+id/btn_start_shake"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/ss_btn_height"
+            android:layout_marginTop="@dimen/ss_welcome_gap_btn"
+            android:text="@string/welcome_cta"
+            android:textColor="@color/ss_white"
+            android:textSize="@dimen/ss_btn_text_size"
+            android:fontFamily="@font/poppins_semibold"
+            android:background="@drawable/bg_button_outline_green"
+            android:paddingStart="@dimen/ss_btn_padding_h"
+            android:paddingEnd="@dimen/ss_btn_padding_h"
+            android:stateListAnimator="@null"
+            style="@style/SS.Button.Base" />
+
+    </LinearLayout>
+
+    <!-- RIGHT: Outer circle ring -->
+    <View
+        android:id="@+id/v_circle_outer"
+        android:layout_width="@dimen/ss_circle_outer"
+        android:layout_height="@dimen/ss_circle_outer"
+        android:background="@drawable/bg_circle_subtle"
+        app:layout_constraintStart_toStartOf="@id/gl_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- RIGHT: Inner circle ring -->
+    <View
+        android:id="@+id/v_circle_inner"
+        android:layout_width="@dimen/ss_circle_inner"
+        android:layout_height="@dimen/ss_circle_inner"
+        android:background="@drawable/bg_circle_subtle"
+        app:layout_constraintStart_toStartOf="@id/gl_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- RIGHT: Shake illustration — replace src with @drawable/img_shake_cup -->
+    <ImageView
+        android:id="@+id/iv_shake_illustration"
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/welcome_subtitle"
+        app:layout_constraintStart_toStartOf="@id/gl_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

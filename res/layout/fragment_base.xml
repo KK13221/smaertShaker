@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SCREEN 3 — Choose Your Base · Figma 1:459 (unselected) + 1:498 (Milk selected) -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screen_base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ss_background">
+
+    <include android:id="@+id/include_logo" layout="@layout/view_logo_chip"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/ss_content_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--
+          Kotlin: color "your base" → #BBF172
+            val s = SpannableString("Choose your base")
+            s.setSpan(ForegroundColorSpan(Color.parseColor("#BBF172")), 7, 16, 0)
+            tv_heading.text = s
+        -->
+        <TextView
+            android:id="@+id/tv_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your base"
+            android:textSize="@dimen/ss_heading_size"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/ss_text_primary"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ss_heading_gap"
+            android:text="@string/base_subtitle"
+            android:textSize="@dimen/ss_subtitle_size"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/ss_text_primary"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Milk + Water cards centered -->
+    <LinearLayout
+        android:id="@+id/ll_base_cards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_header"
+        app:layout_constraintBottom_toTopOf="@id/ll_bottom_bar">
+
+        <!-- MILK -->
+        <LinearLayout
+            android:id="@+id/card_milk"
+            android:layout_width="@dimen/ss_base_card_width"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/ss_base_card_padding_v"
+            android:paddingBottom="@dimen/ss_base_card_bottom_pad"
+            android:background="@drawable/bg_base_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:clipToOutline="true">
+
+            <!-- Replace src with @drawable/img_milk -->
+            <ImageView
+                android:id="@+id/iv_milk"
+                android:layout_width="@dimen/ss_base_card_img_width"
+                android:layout_height="@dimen/ss_base_card_img_height"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/base_milk"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tv_milk_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ss_base_card_name_top"
+                android:text="@string/base_milk"
+                android:textSize="@dimen/ss_base_card_name_size"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_chocolate_text"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <Space android:layout_width="@dimen/ss_base_card_gap" android:layout_height="wrap_content" />
+
+        <!-- WATER -->
+        <LinearLayout
+            android:id="@+id/card_water"
+            android:layout_width="@dimen/ss_base_card_width"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/ss_base_card_padding_v"
+            android:paddingBottom="@dimen/ss_base_card_bottom_pad"
+            android:background="@drawable/bg_base_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:clipToOutline="true">
+
+            <!-- Replace src with @drawable/img_water -->
+            <ImageView
+                android:id="@+id/iv_water"
+                android:layout_width="@dimen/ss_base_card_img_width"
+                android:layout_height="@dimen/ss_base_card_img_height"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/base_water"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tv_water_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ss_base_card_name_top"
+                android:text="@string/base_water"
+                android:textSize="@dimen/ss_base_card_name_size"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_chocolate_text"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ss_bottom_bar_height"
+        android:paddingStart="@dimen/ss_screen_padding_h"
+        android:paddingEnd="@dimen/ss_screen_padding_h"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ll_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView android:id="@+id/tv_total_label"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Total" android:textSize="@dimen/ss_total_label_size"
+                android:fontFamily="@font/poppins_regular" android:textColor="@color/ss_text_muted" />
+
+            <TextView android:id="@+id/tv_total_amount"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ss_total_gap" android:text="₹ 297"
+                android:textSize="@dimen/ss_total_amount_size" android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/ss_white" tools:text="₹ 317" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button android:id="@+id/btn_back"
+                android:layout_width="@dimen/ss_btn_min_width" android:layout_height="@dimen/ss_btn_height"
+                android:text="@string/btn_back" android:textColor="@color/ss_white"
+                android:background="@drawable/bg_button_outline_green"
+                android:stateListAnimator="@null" style="@style/SS.Button.Base" />
+
+            <Space android:layout_width="@dimen/ss_btn_gap" android:layout_height="wrap_content" />
+
+            <Button android:id="@+id/btn_continue"
+                android:layout_width="@dimen/ss_btn_min_width" android:layout_height="@dimen/ss_btn_height"
+                android:text="@string/btn_continue" android:textColor="@color/ss_btn_inactive_text"
+                android:background="@drawable/bg_button_inactive" android:enabled="false"
+                android:stateListAnimator="@null" style="@style/SS.Button.Base" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

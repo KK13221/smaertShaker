@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- All values: Figma px ÷ 2 = dp/sp (design is at 2x / xhdpi) -->
+
+    <!-- Screen layout -->
+    <dimen name="ss_screen_padding_h">44dp</dimen>
+    <dimen name="ss_screen_padding_v">32dp</dimen>
+    <dimen name="ss_content_top">60dp</dimen>
+
+    <!-- Logo chip -->
+    <dimen name="ss_logo_margin_top">18dp</dimen>
+    <dimen name="ss_logo_margin_end">22dp</dimen>
+    <dimen name="ss_logo_brand_size">11sp</dimen>
+    <dimen name="ss_logo_vending_size">8sp</dimen>
+    <dimen name="ss_logo_vending_padding_h">5dp</dimen>
+    <dimen name="ss_logo_vending_padding_v">2dp</dimen>
+
+    <!-- Section headings -->
+    <dimen name="ss_heading_size">32sp</dimen>
+    <dimen name="ss_subtitle_size">18sp</dimen>
+    <dimen name="ss_heading_gap">8dp</dimen>
+
+    <!-- Flavour cards -->
+    <dimen name="ss_card_width">175dp</dimen>
+    <dimen name="ss_card_height">235dp</dimen>
+    <dimen name="ss_card_image_height">130dp</dimen>
+    <dimen name="ss_card_corner">6dp</dimen>
+    <dimen name="ss_card_gap">29dp</dimen>
+    <dimen name="ss_card_padding_h">12dp</dimen>
+    <dimen name="ss_card_padding_v">8dp</dimen>
+    <dimen name="ss_card_name_size">17sp</dimen>
+
+    <!-- Price badge -->
+    <dimen name="ss_price_badge_text">13sp</dimen>
+    <dimen name="ss_price_badge_padding_h">7dp</dimen>
+    <dimen name="ss_price_badge_padding_v">4dp</dimen>
+    <dimen name="ss_price_badge_corner">100dp</dimen>
+    <dimen name="ss_price_badge_margin">10dp</dimen>
+
+    <!-- Counter -->
+    <dimen name="ss_counter_btn_size">32dp</dimen>
+    <dimen name="ss_counter_value_size">16sp</dimen>
+    <dimen name="ss_counter_gap">8dp</dimen>
+
+    <!-- Bottom bar -->
+    <dimen name="ss_bottom_bar_height">80dp</dimen>
+    <dimen name="ss_total_label_size">18sp</dimen>
+    <dimen name="ss_total_amount_size">32sp</dimen>
+    <dimen name="ss_total_gap">4dp</dimen>
+
+    <!-- Buttons -->
+    <dimen name="ss_btn_height">60dp</dimen>
+    <dimen name="ss_btn_corner">100dp</dimen>
+    <dimen name="ss_btn_border">2.5dp</dimen>
+    <dimen name="ss_btn_text_size">20sp</dimen>
+    <dimen name="ss_btn_padding_h">36dp</dimen>
+    <dimen name="ss_btn_gap">30dp</dimen>
+    <dimen name="ss_btn_min_width">150dp</dimen>
+
+    <!-- Welcome screen -->
+    <dimen name="ss_welcome_title_size">56sp</dimen>
+    <dimen name="ss_welcome_vending_size">44sp</dimen>
+    <dimen name="ss_welcome_vending_padding_h">12dp</dimen>
+    <dimen name="ss_welcome_vending_padding_v">4dp</dimen>
+    <dimen name="ss_welcome_subtitle_size">16sp</dimen>
+    <dimen name="ss_welcome_padding_start">72dp</dimen>
+    <dimen name="ss_welcome_gap_subtitle">28dp</dimen>
+    <dimen name="ss_welcome_gap_btn">32dp</dimen>
+    <dimen name="ss_circle_outer">320dp</dimen>
+    <dimen name="ss_circle_inner">240dp</dimen>
+
+    <!-- Base screen -->
+    <dimen name="ss_base_card_width">180dp</dimen>
+    <dimen name="ss_base_card_corner">18dp</dimen>
+    <dimen name="ss_base_card_gap">40dp</dimen>
+    <dimen name="ss_base_card_padding_v">20dp</dimen>
+    <dimen name="ss_base_card_img_height">130dp</dimen>
+    <dimen name="ss_base_card_img_width">100dp</dimen>
+    <dimen name="ss_base_card_name_size">15sp</dimen>
+    <dimen name="ss_base_card_name_top">12dp</dimen>
+    <dimen name="ss_base_card_border">3dp</dimen>
+    <dimen name="ss_base_card_bottom_pad">16dp</dimen>
+
+    <!-- Payment screen -->
+    <dimen name="ss_payment_title_size">30sp</dimen>
+    <dimen name="ss_payment_subtitle_size">16sp</dimen>
+    <dimen name="ss_panel_corner">6dp</dimen>
+    <dimen name="ss_panel_border">2dp</dimen>
+    <dimen name="ss_panel_padding">15dp</dimen>
+    <dimen name="ss_panel_gap">14dp</dimen>
+    <dimen name="ss_panel_top_margin">12dp</dimen>
+    <dimen name="ss_panel_title_size">14sp</dimen>
+    <dimen name="ss_order_img_size">48dp</dimen>
+    <dimen name="ss_order_img_corner">5dp</dimen>
+    <dimen name="ss_order_text_size">14sp</dimen>
+    <dimen name="ss_order_price_size">14sp</dimen>
+    <dimen name="ss_order_item_gap">10dp</dimen>
+    <dimen name="ss_order_counter_btn_size">22dp</dimen>
+    <dimen name="ss_order_counter_btn_corner">4dp</dimen>
+    <dimen name="ss_order_counter_value_size">12sp</dimen>
+    <dimen name="ss_order_counter_gap">4dp</dimen>
+    <dimen name="ss_close_btn_size">20dp</dimen>
+    <dimen name="ss_nutrition_text_size">13sp</dimen>
+    <dimen name="ss_nutrition_row_gap">3dp</dimen>
+    <dimen name="ss_qr_size">120dp</dimen>
+    <dimen name="ss_qr_corner">6dp</dimen>
+    <dimen name="ss_qr_padding">6dp</dimen>
+    <dimen name="ss_scan_title_size">18sp</dimen>
+    <dimen name="ss_payment_badge_height">24dp</dimen>
+    <dimen name="ss_payment_badge_width">38dp</dimen>
+    <dimen name="ss_payment_badge_corner">4dp</dimen>
+    <dimen name="ss_payment_badge_gap">8dp</dimen>
+    <dimen name="ss_summary_title_size">13sp</dimen>
+    <dimen name="ss_summary_text_size">12sp</dimen>
+    <dimen name="ss_summary_total_size">15sp</dimen>
+    <dimen name="ss_summary_row_gap">6dp</dimen>
+</resources>

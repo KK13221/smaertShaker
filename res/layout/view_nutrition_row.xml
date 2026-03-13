@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reusable nutrition table row — used 6x in fragment_payment via <include> -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/ss_nutrition_row_gap"
+        android:paddingBottom="@dimen/ss_nutrition_row_gap">
+
+        <TextView
+            android:id="@+id/tv_nutrition_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Calories"
+            android:textSize="@dimen/ss_nutrition_text_size"
+            android:fontFamily="@font/poppins_light"
+            android:textColor="@color/ss_text_primary"
+            tools:text="Calories" />
+
+        <TextView
+            android:id="@+id/tv_nutrition_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="420 kcal"
+            android:textSize="@dimen/ss_nutrition_text_size"
+            android:fontFamily="@font/poppins_light"
+            android:textColor="@color/ss_text_primary"
+            tools:text="420 kcal" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ss_separator_gray" />
+</LinearLayout>

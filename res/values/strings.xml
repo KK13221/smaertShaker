@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartShake Vending</string>
+    <!-- Welcome -->
+    <string name="welcome_brand">SMARTSHAKE</string>
+    <string name="welcome_vending">VENDING</string>
+    <string name="welcome_subtitle">Fuel Your Workout. Customize Your Shake.</string>
+    <string name="welcome_cta">Start your Shake</string>
+    <!-- Flavour screen -->
+    <string name="flavour_subtitle">Select one or more flavours to customize your shakes</string>
+    <string name="flavour_chocolate">Chocolate</string>
+    <string name="flavour_vanilla">Vanilla</string>
+    <string name="flavour_banana">Banana</string>
+    <string name="flavour_strawberry">Strawberry</string>
+    <string name="flavour_coffee">Coffee</string>
+    <!-- Base screen -->
+    <string name="base_subtitle">Select evaporated milk or water for your protein shake</string>
+    <string name="base_milk">Milk</string>
+    <string name="base_water">Water</string>
+    <!-- Payment screen -->
+    <string name="payment_heading">Payment</string>
+    <string name="payment_subtitle">Review your order and proceed to payment</string>
+    <string name="payment_section_flavours">Flavours</string>
+    <string name="payment_section_base">Base</string>
+    <string name="payment_scan_title">Scan &amp; Pay</string>
+    <string name="payment_nutrition_title">Nutritional Information</string>
+    <string name="payment_nutrient_col">Nutrient</string>
+    <string name="payment_values_col">Values</string>
+    <string name="payment_order_summary">Order Summary</string>
+    <string name="payment_subtotal">Subtotal</string>
+    <string name="payment_tax">Tax</string>
+    <string name="payment_total">Total</string>
+    <!-- Nutrition -->
+    <string name="nutrition_calories">Calories</string>
+    <string name="nutrition_protein">Protein</string>
+    <string name="nutrition_carbs">Carbs</string>
+    <string name="nutrition_fat">Fat</string>
+    <string name="nutrition_fibre">Fibre</string>
+    <string name="nutrition_sugar">Sugar</string>
+    <!-- Buttons -->
+    <string name="btn_back">Back</string>
+    <string name="btn_continue">Continue</string>
+    <!-- Logo -->
+    <string name="logo_brand">SMARTSHAKE</string>
+    <string name="logo_sub">VENDING</string>
+    <!-- Accessibility -->
+    <string name="cd_minus_btn">Decrease quantity</string>
+    <string name="cd_plus_btn">Increase quantity</string>
+    <string name="cd_remove_item">Remove item</string>
+    <string name="cd_qr_code">QR code for payment</string>
+</resources>

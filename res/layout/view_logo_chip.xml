@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reusable logo chip — top-right corner on Screens 2, 3, 4 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="end"
+    android:layout_marginTop="@dimen/ss_logo_margin_top"
+    android:layout_marginEnd="@dimen/ss_logo_margin_end">
+
+    <TextView
+        android:id="@+id/tv_logo_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logo_brand"
+        android:textColor="@color/ss_white"
+        android:textSize="@dimen/ss_logo_brand_size"
+        android:fontFamily="@font/poppins_semibold"
+        android:letterSpacing="0.03" />
+
+    <TextView
+        android:id="@+id/tv_logo_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="@string/logo_sub"
+        android:textColor="@color/ss_background"
+        android:textSize="@dimen/ss_logo_vending_size"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@drawable/bg_vending_badge"
+        android:paddingStart="@dimen/ss_logo_vending_padding_h"
+        android:paddingEnd="@dimen/ss_logo_vending_padding_h"
+        android:paddingTop="@dimen/ss_logo_vending_padding_v"
+        android:paddingBottom="@dimen/ss_logo_vending_padding_v" />
+
+</LinearLayout>
