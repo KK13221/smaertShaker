@@ -48,7 +48,7 @@
         android:text="₹ 99"
         android:textColor="@color/ss_chocolate_text"
         android:textSize="@dimen/ss_price_badge_text"
-        android:fontFamily="@font/reddit_sans_medium"
+        android:fontFamily="sans-serif-medium"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="₹ 99" />
@@ -78,7 +78,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/flavour_chocolate"
             android:textSize="@dimen/ss_card_name_size"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="sans-serif-medium"
             android:textColor="@color/ss_chocolate_text"
             android:gravity="center"
             tools:text="Chocolate" />
@@ -109,7 +109,7 @@
                 android:layout_marginEnd="@dimen/ss_counter_gap"
                 android:text="0"
                 android:textSize="@dimen/ss_counter_value_size"
-                android:fontFamily="@font/inter_bold"
+                android:fontFamily="sans-serif"
                 android:textColor="@color/ss_chocolate_text"
                 android:gravity="center"
                 android:minWidth="20dp"

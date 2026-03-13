@@ -26,7 +26,7 @@
         android:layout_weight="1"
         android:layout_marginStart="12dp"
         android:textSize="@dimen/ss_order_text_size"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="sans-serif"
         android:textColor="@color/ss_text_primary"
         tools:text="Chocolate" />
 
@@ -58,7 +58,7 @@
             android:layout_marginEnd="@dimen/ss_order_counter_gap"
             android:text="1"
             android:textSize="@dimen/ss_order_counter_value_size"
-            android:fontFamily="@font/inter_regular"
+            android:fontFamily="sans-serif"
             android:textColor="@color/ss_text_primary"
             android:gravity="center"
             android:minWidth="20dp"
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textSize="@dimen/ss_order_price_size"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="sans-serif"
         android:textColor="@color/ss_text_primary"
         tools:text="₹ 99" />
 

@@ -39,7 +39,7 @@
             android:text="@string/welcome_brand"
             android:textColor="@color/ss_white"
             android:textSize="@dimen/ss_welcome_title_size"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="sans-serif-medium"
             android:letterSpacing="-0.02" />
 
         <!-- "VENDING" green badge -->
@@ -51,7 +51,7 @@
             android:text="@string/welcome_vending"
             android:textColor="@color/ss_background"
             android:textSize="@dimen/ss_welcome_vending_size"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="sans-serif-medium"
             android:background="@color/ss_green"
             android:paddingStart="@dimen/ss_welcome_vending_padding_h"
             android:paddingEnd="@dimen/ss_welcome_vending_padding_h"
@@ -67,7 +67,7 @@
             android:text="@string/welcome_subtitle"
             android:textColor="@color/ss_text_muted"
             android:textSize="@dimen/ss_welcome_subtitle_size"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="sans-serif"
             android:textStyle="bold" />
 
         <!-- CTA Button -->
@@ -79,7 +79,7 @@
             android:text="@string/welcome_cta"
             android:textColor="@color/ss_white"
             android:textSize="@dimen/ss_btn_text_size"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="sans-serif-medium"
             android:background="@drawable/bg_button_outline_green"
             android:paddingStart="@dimen/ss_btn_padding_h"
             android:paddingEnd="@dimen/ss_btn_padding_h"

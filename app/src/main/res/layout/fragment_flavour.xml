@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Choose your flavour"
             android:textSize="@dimen/ss_heading_size"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="sans-serif-medium"
             android:textColor="@color/ss_text_primary"
             android:gravity="center" />
 
@@ -49,7 +49,7 @@
             android:layout_marginTop="@dimen/ss_heading_gap"
             android:text="@string/flavour_subtitle"
             android:textSize="@dimen/ss_subtitle_size"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="sans-serif"
             android:textColor="@color/ss_text_primary"
             android:gravity="center" />
     </LinearLayout>
@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:text="Total"
                 android:textSize="@dimen/ss_total_label_size"
-                android:fontFamily="@font/poppins_regular"
+                android:fontFamily="sans-serif"
                 android:textColor="@color/ss_text_muted" />
 
             <TextView
@@ -109,7 +109,7 @@
                 android:layout_marginTop="@dimen/ss_total_gap"
                 android:text="₹ 0"
                 android:textSize="@dimen/ss_total_amount_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_white"
                 tools:text="₹ 297" />
         </LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder: replace with your actual milk image PNG/WebP -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="130dp"
+    android:viewportWidth="100"
+    android:viewportHeight="130">
+    <!-- Carton body -->
+    <path android:fillColor="#F0EFE3"
+        android:pathData="M20,40 L80,40 L80,115 L20,115 Z"/>
+    <!-- Carton top -->
+    <path android:fillColor="#D0D0C0"
+        android:pathData="M20,40 L50,20 L80,40 Z"/>
+    <!-- Blue band -->
+    <path android:fillColor="#4A90D9"
+        android:pathData="M20,65 L80,65 L80,85 L20,85 Z"/>
+    <!-- MILK text placeholder -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M32,72 L32,78 M36,72 L40,78 L44,72 M48,72 L48,78 L54,78"/>
+</vector>

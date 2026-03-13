@@ -21,7 +21,7 @@
         android:layout_marginTop="@dimen/ss_content_top"
         android:text="@string/payment_heading"
         android:textSize="@dimen/ss_payment_title_size"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="sans-serif-medium"
         android:textColor="@color/ss_green"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         android:layout_marginTop="6dp"
         android:text="@string/payment_subtitle"
         android:textSize="@dimen/ss_payment_subtitle_size"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="sans-serif"
         android:textColor="@color/ss_text_primary"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/payment_section_flavours"
                 android:textSize="@dimen/ss_panel_title_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_green" tools:text="Flavours" />
 
             <View android:layout_width="match_parent" android:layout_height="1dp"
@@ -94,7 +94,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/payment_section_base"
                 android:textSize="@dimen/ss_panel_title_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_green" tools:text="Base" />
 
             <View android:layout_width="match_parent" android:layout_height="1dp"
@@ -120,14 +120,14 @@
                     android:layout_weight="1" android:layout_marginStart="12dp"
                     android:text="@string/base_milk"
                     android:textSize="@dimen/ss_order_text_size"
-                    android:fontFamily="@font/poppins_regular"
+                    android:fontFamily="sans-serif"
                     android:textColor="@color/ss_text_primary" tools:text="Milk" />
 
                 <TextView android:id="@+id/tv_base_price"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:layout_marginStart="8dp" android:text="₹ 20"
                     android:textSize="@dimen/ss_order_price_size"
-                    android:fontFamily="@font/poppins_regular"
+                    android:fontFamily="sans-serif"
                     android:textColor="@color/ss_text_primary" tools:text="₹ 20" />
 
                 <ImageButton android:id="@+id/btn_remove_base"
@@ -158,7 +158,7 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/payment_nutrition_title"
                 android:textSize="@dimen/ss_panel_title_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_green" />
 
             <View android:layout_width="match_parent" android:layout_height="1dp"
@@ -169,11 +169,11 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:text="@string/payment_nutrient_col"
-                    android:textSize="@dimen/ss_nutrition_text_size" android:fontFamily="@font/poppins_medium"
+                    android:textSize="@dimen/ss_nutrition_text_size" android:fontFamily="sans-serif-medium"
                     android:textColor="@color/ss_text_primary" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="@string/payment_values_col"
-                    android:textSize="@dimen/ss_nutrition_text_size" android:fontFamily="@font/poppins_medium"
+                    android:textSize="@dimen/ss_nutrition_text_size" android:fontFamily="sans-serif-medium"
                     android:textColor="@color/ss_text_primary" />
             </LinearLayout>
 
@@ -212,7 +212,7 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/payment_scan_title"
                 android:textSize="@dimen/ss_scan_title_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_green"
                 android:gravity="center" />
 
@@ -272,7 +272,7 @@
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/payment_order_summary"
                 android:textSize="@dimen/ss_summary_title_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_text_primary" />
 
             <View android:layout_width="match_parent" android:layout_height="1dp"
@@ -284,11 +284,11 @@
                 android:orientation="horizontal" android:layout_marginBottom="@dimen/ss_summary_row_gap">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:text="@string/payment_subtotal" android:textSize="@dimen/ss_summary_text_size"
-                    android:fontFamily="@font/poppins_regular" android:textColor="@color/ss_text_secondary" />
+                    android:fontFamily="sans-serif" android:textColor="@color/ss_text_secondary" />
                 <TextView android:id="@+id/tv_subtotal_value"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="₹ 317" android:textSize="@dimen/ss_summary_text_size"
-                    android:fontFamily="@font/inter_regular" android:textColor="@color/ss_text_primary"
+                    android:fontFamily="sans-serif" android:textColor="@color/ss_text_primary"
                     tools:text="₹ 317" />
             </LinearLayout>
 
@@ -297,11 +297,11 @@
                 android:orientation="horizontal" android:layout_marginBottom="@dimen/ss_summary_row_gap">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:text="@string/payment_tax" android:textSize="@dimen/ss_summary_text_size"
-                    android:fontFamily="@font/poppins_regular" android:textColor="@color/ss_text_secondary" />
+                    android:fontFamily="sans-serif" android:textColor="@color/ss_text_secondary" />
                 <TextView android:id="@+id/tv_tax_value"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="₹ 13" android:textSize="@dimen/ss_summary_text_size"
-                    android:fontFamily="@font/inter_regular" android:textColor="@color/ss_text_primary"
+                    android:fontFamily="sans-serif" android:textColor="@color/ss_text_primary"
                     tools:text="₹ 13" />
             </LinearLayout>
 
@@ -312,11 +312,11 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
                 <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
                     android:text="@string/payment_total" android:textSize="@dimen/ss_summary_total_size"
-                    android:fontFamily="@font/poppins_semibold" android:textColor="@color/ss_text_primary" />
+                    android:fontFamily="sans-serif-medium" android:textColor="@color/ss_text_primary" />
                 <TextView android:id="@+id/tv_total_value"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="₹ 330" android:textSize="@dimen/ss_summary_total_size"
-                    android:fontFamily="@font/poppins_semibold" android:textColor="@color/ss_text_primary"
+                    android:fontFamily="sans-serif-medium" android:textColor="@color/ss_text_primary"
                     tools:text="₹ 330" />
             </LinearLayout>
         </LinearLayout>

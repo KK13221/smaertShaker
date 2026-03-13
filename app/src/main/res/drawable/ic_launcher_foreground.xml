@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Cup body -->
+    <path
+        android:fillColor="#BBF172"
+        android:pathData="M38,38 L70,38 L65,80 L43,80 Z" />
+
+    <!-- Cup top rim -->
+    <path
+        android:fillColor="#BBF172"
+        android:pathData="M34,34 Q54,30 74,34 L70,38 L38,38 Z" />
+
+    <!-- Straw -->
+    <path
+        android:fillColor="#BBF172"
+        android:strokeColor="#BBF172"
+        android:strokeWidth="3"
+        android:pathData="M58,20 L62,38" />
+
+    <!-- Straw top dot -->
+    <path
+        android:fillColor="#BBF172"
+        android:pathData="M56,18 A3,3 0 1 1 62,18 A3,3 0 1 1 56,18 Z" />
+
+</vector>

@@ -20,7 +20,7 @@
             android:layout_weight="1"
             android:text="Calories"
             android:textSize="@dimen/ss_nutrition_text_size"
-            android:fontFamily="@font/poppins_light"
+            android:fontFamily="sans-serif-light"
             android:textColor="@color/ss_text_primary"
             tools:text="Calories" />
 
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="420 kcal"
             android:textSize="@dimen/ss_nutrition_text_size"
-            android:fontFamily="@font/poppins_light"
+            android:fontFamily="sans-serif-light"
             android:textColor="@color/ss_text_primary"
             tools:text="420 kcal" />
     </LinearLayout>

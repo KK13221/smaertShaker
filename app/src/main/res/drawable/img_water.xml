@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder: replace with your actual water bottle image PNG/WebP -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="130dp"
+    android:viewportWidth="100"
+    android:viewportHeight="130">
+    <!-- Bottle body -->
+    <path android:fillColor="#B3E5FC"
+        android:pathData="M30,50 Q25,55 25,65 L25,110 Q25,115 30,115 L70,115 Q75,115 75,110 L75,65 Q75,55 70,50 Z"/>
+    <!-- Bottle neck -->
+    <path android:fillColor="#B3E5FC"
+        android:pathData="M38,30 L38,50 L62,50 L62,30 Z"/>
+    <!-- Cap -->
+    <path android:fillColor="#0288D1"
+        android:pathData="M36,22 Q50,18 64,22 L62,30 L38,30 Z"/>
+    <!-- Water fill -->
+    <path android:fillColor="#4FC3F7" android:fillAlpha="0.6"
+        android:pathData="M27,80 L73,80 L73,110 Q73,114 70,114 L30,114 Q27,114 27,110 Z"/>
+</vector>

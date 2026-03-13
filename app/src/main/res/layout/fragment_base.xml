@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Choose your base"
             android:textSize="@dimen/ss_heading_size"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="sans-serif-medium"
             android:textColor="@color/ss_text_primary"
             android:gravity="center" />
 
@@ -47,7 +47,7 @@
             android:layout_marginTop="@dimen/ss_heading_gap"
             android:text="@string/base_subtitle"
             android:textSize="@dimen/ss_subtitle_size"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="sans-serif"
             android:textColor="@color/ss_text_primary"
             android:gravity="center" />
     </LinearLayout>
@@ -95,7 +95,7 @@
                 android:layout_marginTop="@dimen/ss_base_card_name_top"
                 android:text="@string/base_milk"
                 android:textSize="@dimen/ss_base_card_name_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_chocolate_text"
                 android:gravity="center" />
         </LinearLayout>
@@ -132,7 +132,7 @@
                 android:layout_marginTop="@dimen/ss_base_card_name_top"
                 android:text="@string/base_water"
                 android:textSize="@dimen/ss_base_card_name_size"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_chocolate_text"
                 android:gravity="center" />
         </LinearLayout>
@@ -161,12 +161,12 @@
             <TextView android:id="@+id/tv_total_label"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="Total" android:textSize="@dimen/ss_total_label_size"
-                android:fontFamily="@font/poppins_regular" android:textColor="@color/ss_text_muted" />
+                android:fontFamily="sans-serif" android:textColor="@color/ss_text_muted" />
 
             <TextView android:id="@+id/tv_total_amount"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/ss_total_gap" android:text="₹ 297"
-                android:textSize="@dimen/ss_total_amount_size" android:fontFamily="@font/poppins_semibold"
+                android:textSize="@dimen/ss_total_amount_size" android:fontFamily="sans-serif-medium"
                 android:textColor="@color/ss_white" tools:text="₹ 317" />
         </LinearLayout>
 

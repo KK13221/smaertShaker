@@ -8,7 +8,7 @@
         <item name="colorSurface">@color/ss_surface</item>
         <item name="colorOnSurface">@color/ss_text_primary</item>
         <item name="android:textColorPrimary">@color/ss_text_primary</item>
-        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowKeepScreenOn">true</item>
     </style>
@@ -28,18 +28,18 @@
         <item name="android:paddingEnd">@dimen/ss_btn_padding_h</item>
         <item name="android:minWidth">@dimen/ss_btn_min_width</item>
         <item name="android:textSize">@dimen/ss_btn_text_size</item>
-        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="backgroundTint">@null</item>
     </style>
 
     <!-- Nutrition text -->
     <style name="SS.Text.NutritionHeader">
-        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/ss_nutrition_text_size</item>
         <item name="android:textColor">@color/ss_text_primary</item>
     </style>
     <style name="SS.Text.NutritionValue">
-        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textSize">@dimen/ss_nutrition_text_size</item>
         <item name="android:textColor">@color/ss_text_primary</item>
     </style>
