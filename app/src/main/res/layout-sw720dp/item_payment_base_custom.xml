@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="12dp">
+
+    <!-- Base Image -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp">
+        <ImageView
+            android:id="@+id/iv_base_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/milk" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_base_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Milk"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_6sdp" />
+
+    <TextView
+        android:id="@+id/tv_base_price"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="₹ 20"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_6sdp" />
+
+    <ImageView
+        android:id="@+id/iv_remove_base"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:tint="#777777" />
+
+</LinearLayout>

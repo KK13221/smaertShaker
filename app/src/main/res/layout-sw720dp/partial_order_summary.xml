@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Subtotal -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="4dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Subtotal" android:textColor="#777777" android:fontFamily="@font/poppins_semibold" android:textSize="@dimen/_6sdp" />
+        <TextView android:id="@+id/tv_subtotal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹ 317" android:textColor="#777777" android:fontFamily="@font/poppins_semibold" android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <!-- Tax -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="12dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tax" android:textColor="#777777" android:fontFamily="@font/poppins_semibold" android:textSize="@dimen/_6sdp" />
+        <TextView android:id="@+id/tv_tax" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹ 13" android:textColor="#777777" android:fontFamily="@font/poppins_semibold" android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#333333" android:layout_marginBottom="12dp" />
+
+    <!-- Total -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Total" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_semibold" android:textSize="@dimen/_6sdp" />
+        <TextView android:id="@+id/tv_total" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₹ 330" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_semibold" android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+</LinearLayout>

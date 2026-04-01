@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground"
+    android:paddingBottom="16dp">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:text="Choose "
+            android:textSize="@dimen/_24sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="your base"
+            android:textSize="@dimen/_24sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/colorLimeGreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select evaporated milk or water for your protein shake"
+        android:textColor="#AAAAAA"
+        android:textSize="@dimen/_10sdp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginTop="6dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Base Selection Container -->
+
+    <!-- Bottom bar -->
+    <LinearLayout
+        android:id="@+id/base_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+        app:layout_constraintVertical_bias="0.236">
+
+        <!-- Milk Card -->
+        <FrameLayout
+            android:id="@+id/cardMilk"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_marginEnd="40dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- Card background (bottom portion only) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_105sdp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/base_card_bg"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_8sdp">
+
+                <TextView
+                    android:id="@+id/tv_milk_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Milk"
+                    android:textColor="#B44C2B"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Image overflowing above the card -->
+            <ImageView
+                android:id="@+id/iv_milk_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
+                android:layout_gravity="top|center_horizontal"
+                android:scaleType="fitCenter"
+                android:src="@drawable/milk" />
+
+        </FrameLayout>
+
+        <!-- Water Card -->
+        <FrameLayout
+            android:id="@+id/card_water"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_140sdp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- Card background (bottom portion only) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_105sdp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/base_card_bg"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_8sdp">
+
+                <TextView
+                    android:id="@+id/tv_water_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Water"
+                    android:textColor="#B44C2B"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Image overflowing above the card -->
+            <ImageView
+                android:id="@+id/iv_water_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
+                android:layout_gravity="top|center_horizontal"
+                android:scaleType="fitCenter"
+                android:src="@drawable/water" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_loading"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_fileName="loading.lottie"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:visibility="gone" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Total label + amount on left -->
+        <TextView
+            android:id="@+id/tv_total_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textColor="#AAAAAA"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="₹ 0"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_total_label" />
+
+        <!-- Back button — outlined, rounded pill -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Back"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:textAllCaps="false"
+            app:cornerRadius="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_continue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/colorLimeGreen"
+            app:strokeWidth="2dp"
+            android:backgroundTint="@android:color/transparent" />
+
+        <!-- Continue button — filled green pill -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:backgroundTint="#626262"
+            android:text="Continue"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_6sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAllCaps="false"
+            app:cornerRadius="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

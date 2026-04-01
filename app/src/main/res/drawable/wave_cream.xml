@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    wave_cream.xml
+    S-curve dual wave divider.
+    Matches the specific design reference with a darker background wave and a lighter foreground wave.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="100dp"
+    android:viewportWidth="400"
+    android:viewportHeight="100">
+
+    <!-- Darker back wave (Layer 1) -->
+    <path
+        android:fillColor="#F6CB82"
+        android:pathData="
+            M0,35
+            C80,0 150,65 220,35
+            C300,5 350,55 400,25
+            L400,100 L0,100 Z" />
+
+    <!-- Lighter front wave (Layer 2) -->
+    <path
+        android:fillColor="#FDE6B1"
+        android:pathData="
+            M0,55
+            C70,25 140,85 220,55
+            C280,30 340,75 400,45
+            L400,100 L0,100 Z" />
+</vector>

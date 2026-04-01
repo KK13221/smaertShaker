@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_flavour_card.xml
+    Layout:
+      1. Full-card chocolate photo (ImageView, centerCrop)
+      2. Wave cream overlay (ImageView using wave_cream.xml) positioned at ~55% from top
+      3. Price badge — top-right corner
+      4. Bottom section: flavour name + stepper sit on the cream wave area
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_90sdp"
+    android:layout_height="@dimen/_130sdp"
+    android:layout_marginHorizontal="@dimen/_4sdp"
+    android:layout_marginVertical="4dp"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="0dp">
+
+    <!-- ConstraintLayout gives precise control over wave positioning -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <!-- 1. Chocolate photo — fills top ~60% of the card -->
+        <!-- 1. Chocolate photo — fills top area above bottom section -->
+        <ImageView
+            android:id="@+id/iv_flavour_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Flavour photo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
+            tools:src="@drawable/ic_chocolate" />
+
+        <!--
+            2. Wave overlay — rendered at the seam between photo and cream.
+               Height is 30% of card; negative marginTop overlaps the photo
+               so the wave appears to cut into the image naturally.
+        -->
+        <ImageView
+            android:id="@+id/iv_wave"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/wave_cream"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="-1dp"
+            app:layout_constraintBottom_toTopOf="@+id/ll_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="Wave divider" />
+
+        <!-- 3. Price badge — top-right -->
+        <TextView
+            android:id="@+id/tv_price_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            android:background="@drawable/bg_price_badge"
+            android:fontFamily="@font/poppins_medium"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_2sdp"
+            android:text="₹99"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <!-- 4. Bottom section: name + stepper on cream area -->
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:background="#FDE6B1"
+            app:layout_constraintHeight_percent="0.35"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Flavour name -->
+            <TextView
+                android:id="@+id/tv_flavour_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Chocolate"
+                android:textColor="#3A2000"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_semibold"
+                tools:ignore="HardcodedText" />
+
+            <!-- Stepper: minus | count | plus -->
+            <LinearLayout
+                android:id="@+id/stepper_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_24sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp">
+
+                <ImageButton
+                    android:id="@+id/btn_decrease"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_stepper_btn"
+                    android:contentDescription="Decrease"
+                    android:src="@drawable/ic_minus"
+                    android:tint="#3A2000" />
+
+                <TextView
+                    android:id="@+id/tv_count"
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#3A2000"
+                    android:textSize="@dimen/_13sdp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/btn_increase"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_stepper_btn"
+                    android:contentDescription="Increase"
+                    android:src="@drawable/ic_plus"
+                    android:tint="#3A2000" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

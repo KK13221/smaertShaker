@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nutrient"
+            android:textColor="#777777"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_6sdp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Values"
+            android:textColor="#777777"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#333333"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Calories -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Calories"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_6sdp" />
+        <TextView
+            android:id="@+id/tv_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="420 kcal"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <!-- Protein -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Protein"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_6sdp" />
+        <TextView
+            android:id="@+id/tv_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 g"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <!-- Carbs -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Carbs" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+        <TextView android:id="@+id/tv_carbs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="45 g" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <!-- Fat -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fat" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+        <TextView android:id="@+id/tv_fat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8 g" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <!-- Fibre -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fibre" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+        <TextView android:id="@+id/tv_fibre" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4 g" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+    <!-- Sugar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sugar" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+        <TextView android:id="@+id/tv_sugar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12 g" android:textColor="#FFFFFF" android:fontFamily="@font/poppins_regular" android:textSize="@dimen/_6sdp" />
+    </LinearLayout>
+
+</LinearLayout>

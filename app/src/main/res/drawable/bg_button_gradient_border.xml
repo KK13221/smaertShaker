@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Gradient border layer -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:startColor="#C8F135"
+                android:endColor="#E05A2B"
+                android:type="linear" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+    <!-- Inner transparent fill (creates border effect) -->
+    <item
+        android:left="2dp"
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#1E1E1E" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+</layer-list>
