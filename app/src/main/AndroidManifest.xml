@@ -30,6 +30,14 @@
             android:name=".ChooseBaseActivity"
             android:exported="false" />
         <activity
+            android:name=".MixingActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".DispensingActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Flavour"
             android:exported="false"
             android:screenOrientation="landscape" />
@@ -43,6 +51,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
+        <activity
+            android:name=".DoneActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AdminWebViewActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

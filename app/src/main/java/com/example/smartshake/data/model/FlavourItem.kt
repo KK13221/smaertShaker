@@ -9,6 +9,7 @@ data class FlavourItem(
     @SerializedName("flavor_name") val name: String,
     @SerializedName("price") val price: String,
     @SerializedName("stock") val stock_level: Int,
+    @SerializedName("slot_id") val slotId: Int = 0,
     var scoops: Int = 0,
     val Colories: String? = null,
     val Protein: String? = null,

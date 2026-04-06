@@ -3,12 +3,14 @@ package com.example.smartshake
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.smartshake.Utils.UartManager
 import com.example.smartshake.Utils.Utils
 import com.google.android.material.button.MaterialButton
 import com.bumptech.glide.Glide
@@ -48,14 +50,19 @@ class PaymentActivity : AppCompatActivity() {
             finish()
         }
 
+        // Dispense Button — sends UART command to the ESP32 machine
+        findViewById<MaterialButton>(R.id.btn_continue).setOnClickListener {
+            sendDispenseCommand()
+        }
+
         // Flavours RecyclerView
         val rvFlavours = findViewById<RecyclerView>(R.id.rv_flavour_summary)
         selectedFlavours?.let { flavours ->
             val selection = flavours.filter { it.scoops > 0 }
-            
+
             rvFlavours.layoutManager = LinearLayoutManager(this)
-            rvFlavours.adapter = FlavourAdapter(selection, R.layout.item_payment_flavour) { 
-                updateSummary() 
+            rvFlavours.adapter = FlavourAdapter(selection, R.layout.item_payment_flavour) {
+                updateSummary()
             }
         }
 
@@ -66,12 +73,49 @@ class PaymentActivity : AppCompatActivity() {
 
         tvBaseName.text = selectedBaseItem?.name?.replaceFirstChar { it.uppercase() } ?: "None"
         tvBasePrice.text = "₹ ${selectedBaseItem?.price ?: 0}"
-        
+
         selectedBaseItem?.let { item ->
             Glide.with(this).load(item.image).placeholder(R.drawable.mk).into(ivBaseImage)
         }
 
         updateSummary()
+    }
+
+    /**
+     * Sends one dispense command per selected flavour over UART.
+     * Base: 0 = Water, 1 = Milk  (matches ESP32 protocol)
+     */
+    private fun sendDispenseCommand() {
+        val selected = selectedFlavours?.filter { it.scoops > 0 }
+        if (selected.isNullOrEmpty()) {
+            Toast.makeText(this, "No flavours selected", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (!UartManager.isConnected) {
+            Toast.makeText(this, "Machine not connected — cannot dispense", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        // Map base name → protocol ID (0 = Water, 1 = Milk)
+        val baseId = when (selectedBaseItem?.name?.lowercase()) {
+            "milk"  -> 1
+            "water" -> 0
+            else    -> 0
+        }
+
+        selected.forEach { flavour ->
+            repeat(flavour.scoops) {
+                // Send hardware slot ID (1-5) instead of Database PK
+                val slot = if (flavour.slotId > 0) flavour.slotId else 1 
+                UartManager.sendDispenseCommand(slot, baseId)
+            }
+        }
+
+        Toast.makeText(this, "Dispensing… please wait", Toast.LENGTH_SHORT).show()
+        val intent = android.content.Intent(this, DispensingActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun updateSummary() {

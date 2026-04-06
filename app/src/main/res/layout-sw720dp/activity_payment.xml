@@ -239,6 +239,7 @@
     </LinearLayout>
 
     <!-- Bottom Bar -->
+    <!-- Bottom Bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
@@ -267,6 +268,22 @@
             app:strokeColor="@color/colorLimeGreen"
             app:strokeWidth="2dp"
             android:backgroundTint="@android:color/transparent" />
+
+        <!-- THIS BUTTON WAS MISSING — add it -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continue"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Dispense"
+            android:textColor="#000000"
+            android:textSize="@dimen/_6sdp"
+            android:textAllCaps="false"
+            app:cornerRadius="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:backgroundTint="@color/colorLimeGreen" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
