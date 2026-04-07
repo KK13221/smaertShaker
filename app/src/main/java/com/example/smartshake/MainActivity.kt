@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val startShake = findViewById<FrameLayout>(R.id.layoutStart)
-        val tvConnectionStatus = findViewById<android.widget.TextView>(R.id.tvConnectionStatus)
+        val viewConnectionStatus = findViewById<android.view.View>(R.id.viewConnectionStatus)
 
         // Disable button initially until connection is confirmed
         startShake.isEnabled = true
@@ -46,33 +46,46 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Initialise UART and open serial port to ESP32
-        initUart(startShake, tvConnectionStatus)
+        initUart(startShake, viewConnectionStatus)
     }
 
-    private fun initUart(startShake: FrameLayout, tvConnectionStatus: android.widget.TextView) {
+    private fun initUart(startShake: FrameLayout, viewConnectionStatus: android.view.View) {
         UartManager.init()
-        UartManager.onConnectionChanged = { connected, port ->
-            Log.d(TAG, "UART connection: $connected on $port")
 
-            // Update UI State
-            startShake.isEnabled = connected
-            startShake.alpha = if (connected) 1.0f else 0.5f
+        // Helper to update UI
+        val updateUI = { connected: Boolean ->
+            val dataReady = UartManager.isDataReady
+            Log.d(TAG, "UART UI Update: connected=$connected, dataReady=$dataReady")
 
-            if (connected) {
-                tvConnectionStatus.text = "Machine Status: Connected"
-                tvConnectionStatus.setTextColor(android.graphics.Color.parseColor("#4CAF50")) // Green
-                UartManager.sendStockRequest()
-            } else {
-                tvConnectionStatus.text = "Machine Status: Disconnected"
-                tvConnectionStatus.setTextColor(android.graphics.Color.parseColor("#F44336")) // Red
-                Toast.makeText(this, "Device Unhealthy - ESP32 Disconnected", Toast.LENGTH_LONG).show()
+            // Only enable the button if data is actively flowing from the machine
+            startShake.isEnabled = connected && dataReady
+            startShake.alpha = if (connected && dataReady) 1.0f else 0.5f
+
+            val statusColor = when {
+                !connected -> "#F44336" // Red
+                connected && !dataReady -> "#FF9800" // Orange
+                connected && dataReady -> "#4CAF50" // Green
+                else -> "#F44336"
             }
+            
+            viewConnectionStatus.backgroundTintList = 
+                android.content.res.ColorStateList.valueOf(android.graphics.Color.parseColor(statusColor))
         }
+
+        UartManager.onConnectionChanged = { connected, _ ->
+            updateUI(connected)
+        }
+
+        // Initial sync: set UI based on current state immediately
+        updateUI(UartManager.isConnected)
+
         UartManager.connect()
     }
 
+
     override fun onDestroy() {
         super.onDestroy()
-        UartManager.release()
+        // Removed UartManager.release() to ensure stable connection 
+        // throughout the application's lifecycle, especially during flow restarts.
     }
 }

@@ -6,28 +6,16 @@
     android:layout_height="match_parent"
     android:background="#050914">
 
+    <!-- Top Bar -->
     <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="36dp"
-        android:src="@android:drawable/ic_menu_crop"
-        app:tint="#E8FF00"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/iv_logo"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/img"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="SmartShake"
-        android:textColor="#E8FF00"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/logoImage"
-        app:layout_constraintStart_toEndOf="@+id/logoImage"
-        app:layout_constraintTop_toTopOf="@+id/logoImage" />
 
     <com.example.smartshake.ui.views.MixingVisualView
         android:id="@+id/mixingVisualView"
@@ -45,8 +33,8 @@
         android:layout_height="wrap_content"
         android:text="MIXING..."
         android:textColor="#FFFFFF"
-        android:textSize="64sp"
-        android:textStyle="bold"
+        android:textSize="54sp"
+        android:textStyle="bold|italic"
         android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@id/mixingVisualView"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,15 +42,100 @@
 
     <TextView
         android:id="@+id/tvMixingDesc"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Crafting your precision-engineered fuel. We're currently\nemulsifying the whey isolate with chilled almond milk."
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="Crafting your precision-engineered fuel. We're currently\nemulsifying the whey isolate with chilled almond milk and\norganic cocoa."
         android:textColor="#888888"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:textAlignment="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/tvMixingStatus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <LinearLayout
+        android:id="@+id/llProgressSegments"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="48dp"
+        android:weightSum="5.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ProgressBar
+            android:id="@+id/pbSegment1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:progressDrawable="@drawable/progress_segment_lime"
+            android:progress="0"
+            android:max="100"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+
+        <ProgressBar
+            android:id="@+id/pbSegment2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:progressDrawable="@drawable/progress_segment_lime"
+            android:progress="0"
+            android:max="100"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+
+        <ProgressBar
+            android:id="@+id/pbSegment3"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:progressDrawable="@drawable/progress_segment_lime"
+            android:progress="0"
+            android:max="100"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+
+        <ProgressBar
+            android:id="@+id/pbSegment4"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:progressDrawable="@drawable/progress_segment_lime"
+            android:progress="0"
+            android:max="100"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+
+        <ProgressBar
+            android:id="@+id/pbSegment5"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:progressDrawable="@drawable/progress_segment_lime"
+            android:progress="0"
+            android:max="100"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,16 @@
     android:background="@color/colorBackground"
     tools:context=".MainActivity">
 
+    <View
+        android:id="@+id/viewConnectionStatus"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_status_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <!-- Decorative background circle (dark swirl hint behind illustration) -->
 
     <!-- Shake illustration image (right side) -->

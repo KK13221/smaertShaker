@@ -3,8 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorBackground">#1B1D1A</color>
-    <color name="colorLimeGreen">#BBF172</color>
-    <color name="colorGradientStart">#C8F135</color>
+    <color name="colorLimeGreen">#83cd1d</color>
+    <color name="colorGradientStart">#bcf272</color>
     <color name="colorGradientEnd">#E05A2B</color>
     <color name="grey">#626262</color>
 </resources>

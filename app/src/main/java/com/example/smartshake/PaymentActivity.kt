@@ -114,6 +114,7 @@ class PaymentActivity : AppCompatActivity() {
 
         Toast.makeText(this, "Dispensing… please wait", Toast.LENGTH_SHORT).show()
         val intent = android.content.Intent(this, DispensingActivity::class.java)
+        intent.putExtra("selected_flavours", selectedFlavours)
         startActivity(intent)
         finish()
     }

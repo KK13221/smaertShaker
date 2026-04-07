@@ -72,6 +72,15 @@ class FlavourAdapter(
         }
 
         holder.btnPlus?.setOnClickListener {
+            // Enforce single flavor selection: 
+            // Reset all other flavors to zero scoops
+            flavours.forEachIndexed { index, item ->
+                if (index != position && item.scoops > 0) {
+                    item.scoops = 0
+                    notifyItemChanged(index)
+                }
+            }
+            
             flavour.scoops++
             notifyItemChanged(position)
             onScoopsChanged?.invoke()

@@ -30,6 +30,9 @@ object UartManager : SerialInter {
     var isConnected: Boolean = false
         private set
 
+    var isDataReady: Boolean = false
+        private set
+
     val machineState = MachineState()
     private val protocolParser = ProtocolParser(machineState)
 
@@ -47,18 +50,29 @@ object UartManager : SerialInter {
     // Watchdog
     private var lastRxTime: Long = 0L
     private var pollingRunnable: Runnable? = null
+    private var reconnectCount = 0
+    private const val MAX_RECONNECTS = 3
 
     // -------------------------------------------------------
     // Lifecycle
     // -------------------------------------------------------
 
+    private var isInitialized = false
+
     fun init() {
+        if (isInitialized) return
+        
         serialManage = SerialManage.getInstance()
         serialManage.init(this)
+        isInitialized = true
         Log.d(TAG, "UartManager initialised")
     }
 
     fun connect(port: String = DEFAULT_PORT, baudRate: Int = DEFAULT_BAUD_RATE) {
+        if (isConnected && currentPort == port) {
+            Log.d(TAG, "Already connected to $port")
+            return
+        }
         currentPort = port
         Log.d(TAG, "Opening port $port at $baudRate baud")
         serialManage.open(port, true, baudRate, 8, 1, 0, 100)
@@ -73,23 +87,31 @@ object UartManager : SerialInter {
 
     private fun startHeartbeat() {
         stopHeartbeat()
+        isDataReady = false // Reset data readiness on heartbeat start/restart
         lastRxTime = System.currentTimeMillis()
         pollingRunnable = object : Runnable {
             override fun run() {
                 val now = System.currentTimeMillis()
-                // If 15 seconds have passed without Rx, mark as disconnected
-                if (now - lastRxTime > 15000 && isConnected) {
+                // If 30 seconds have passed without Rx, mark as disconnected
+                if (now - lastRxTime > 30000 && isConnected) {
                     isConnected = false
                     Log.w(TAG, "Heartbeat lost! ESP32 unplugged or frozen.")
                     mainHandler.post { onConnectionChanged?.invoke(false, currentPort) }
+                    
+                    // Attempt auto-recovery
+                    if (reconnectCount < MAX_RECONNECTS) {
+                        reconnectCount++
+                        Log.i(TAG, "Heartbeat lost. Attempting auto-reconnect (Try $reconnectCount of $MAX_RECONNECTS)...")
+                        connect(currentPort)
+                    }
                 }
 
                 // Send a polling heartbeat (also gets current stock)
-                //sendStockRequest()
+                sendStockRequest()
                 mainHandler.postDelayed(this, 5000)
             }
         }
-        mainHandler.postDelayed(pollingRunnable!!, 300) // start slightly after connect
+        mainHandler.postDelayed(pollingRunnable!!, 1000) // Wait 1s after connection for ESP32 to stabilize
     }
 
     private fun stopHeartbeat() {
@@ -139,8 +161,10 @@ object UartManager : SerialInter {
         isConnected = isSuccess
         if (isSuccess && path != null) {
             currentPort = path
+            reconnectCount = 0 // Reset recovery counter on successful connection
             startHeartbeat()
         } else {
+            isDataReady = false // Reset data readiness if port fails
             stopHeartbeat()
         }
         
@@ -176,7 +200,10 @@ object UartManager : SerialInter {
                 Log.i(TAG, "==========================================")
                 mainHandler.post {
                     protocolParser.parse(line)
+                    isDataReady = true // We received and parsed a valid line
                     onDataParsed?.invoke()
+                    // Trigger a connection update so UI knows data is ready
+                    onConnectionChanged?.invoke(isConnected, currentPort)
                 }
             }
         }

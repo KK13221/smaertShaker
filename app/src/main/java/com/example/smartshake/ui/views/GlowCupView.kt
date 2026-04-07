@@ -39,30 +39,15 @@ class GlowCupView @JvmOverloads constructor(
             }
             start()
         }
-
-        // Fill progress animator
-        ValueAnimator.ofFloat(0f, 0.65f).apply {
-            duration = 6500
-            interpolator = LinearInterpolator()
-            addUpdateListener {
-                progress = it.animatedValue as Float
-                invalidate()
-            }
-            start() // Auto start for now
-        }
     }
 
-    fun startDispense() {
-        progress = 0f
-        ValueAnimator.ofFloat(0f, 0.65f).apply {
-            duration = 6500
-            interpolator = LinearInterpolator()
-            addUpdateListener {
-                progress = it.animatedValue as Float
-                invalidate()
-            }
-            start()
-        }
+    /**
+     * Updates the liquid level in the cup.
+     * @param newProgress A value from 0.0 to 1.0 (0% to 100%).
+     */
+    fun setProgress(newProgress: Float) {
+        this.progress = newProgress.coerceIn(0f, 1f)
+        invalidate()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -104,29 +89,55 @@ class GlowCupView @JvmOverloads constructor(
         val currentFluidHeight = maxFluidHeight * progress
         val fluidTop = (startY + cupRectHeight - currentFluidHeight)
 
-        // 3. Falling fluid stream
+        // 3. The Pipe Nozzle (NEW)
+        val pipeWidth = 30f * context.resources.displayMetrics.density
+        val pipeHeight = 40f * context.resources.displayMetrics.density
+        val pipeX = (w - pipeWidth) / 2
+        val pipeY = 0f
+        
+        paint.color = Color.WHITE
+        rectF.set(pipeX, pipeY, pipeX + pipeWidth, pipeY + pipeHeight)
+        canvas.drawRoundRect(rectF, 10f, 10f, paint)
+
+        // 4. Falling fluid stream
         if (progress < 1f && progress > 0f) {
             val alphaInt = (alphaPulse * 255).toInt()
-            paint.color = Color.argb(alphaInt, 232, 255, 0)
-            paint.strokeWidth = 14f * context.resources.displayMetrics.density
+            paint.color = Color.argb(alphaInt, 255, 255, 255) // White stream
+            
+            // Pulsing width for "premium" flow feel
+            val streamWidthBase = 12f * context.resources.displayMetrics.density
+            val currentStreamWidth = streamWidthBase * (0.8f + (alphaPulse * 0.4f)) 
+            
+            paint.strokeWidth = currentStreamWidth
             paint.strokeCap = Paint.Cap.ROUND
-            canvas.drawLine(w / 2, alcoveStartY, w / 2, fluidTop + 10f, paint)
+            canvas.drawLine(w / 2, pipeHeight - 5f, w / 2, fluidTop + 10f, paint)
         }
 
-        // 4. Fluid Fill
+        // 5. Fluid Fill
         if (progress > 0) {
+            // We use a path to clip the liquid exactly to the cup's rounded corners
+            val clipPath = android.graphics.Path()
+            rectF.set(startX, startY, startX + cupRectWidth, startY + cupRectHeight)
+            clipPath.addRoundRect(rectF, cornerRadius, cornerRadius, android.graphics.Path.Direction.CW)
+            
+            canvas.save()
+            canvas.clipPath(clipPath)
+            
+            // Draw the liquid rect inside the clipped area
             rectF.set(startX, fluidTop, startX + cupRectWidth, startY + cupRectHeight)
             val gradient = LinearGradient(0f, fluidTop, 0f, startY + cupRectHeight,
-                Color.parseColor("#E6E8FF00"), // 90%
-                Color.parseColor("#99E8FF00"), // 60%
+                Color.parseColor("#E6FFFFFF"), // 90% white (User's preferred color)
+                Color.parseColor("#99FFFFFF"), // 60% white
                 Shader.TileMode.CLAMP
             )
             paint.shader = gradient
-            canvas.drawRoundRect(rectF, if (progress >= 0.95f) cornerRadius else 0f, cornerRadius, paint)
+            canvas.drawRect(rectF, paint)
             paint.shader = null
+            
+            canvas.restore()
         }
 
-        // 5. Cup Border
+        // 6. Cup Border
         strokePaint.color = Color.parseColor("#333333")
         rectF.set(startX, startY, startX + cupRectWidth, startY + cupRectHeight)
         canvas.drawRoundRect(rectF, cornerRadius, cornerRadius, strokePaint)

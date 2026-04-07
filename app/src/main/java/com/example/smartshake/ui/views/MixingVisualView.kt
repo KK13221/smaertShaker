@@ -27,14 +27,14 @@ class MixingVisualView @JvmOverloads constructor(
     }
     
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.WHITE
+        color = Color.parseColor("#BBF172")
         textSize = 110f * context.resources.displayMetrics.scaledDensity
         textAlign = Paint.Align.CENTER
         isFakeBoldText = true
     }
     
     private val percentPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#E8FF00") // Electric Lime
+        color = Color.parseColor("#BBF172") // Electric Lime
         textSize = 36f * context.resources.displayMetrics.scaledDensity
         isFakeBoldText = true
     }
@@ -65,6 +65,13 @@ class MixingVisualView @JvmOverloads constructor(
         }
     }
 
+    private var flavorBitmap: android.graphics.Bitmap? = null
+
+    fun setFlavorImage(bitmap: android.graphics.Bitmap) {
+        this.flavorBitmap = bitmap
+        invalidate()
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
@@ -75,14 +82,30 @@ class MixingVisualView @JvmOverloads constructor(
         
         val innerRadius = w * 0.4f
 
-        // Draw chocolate backing
-        paint.shader = RadialGradient(
-            cx, cy, innerRadius,
-            intArrayOf(Color.parseColor("#8B5A2B"), Color.parseColor("#3B2416")),
-            null, Shader.TileMode.CLAMP
-        )
-        canvas.drawCircle(cx, cy, innerRadius, paint)
-        paint.shader = null
+        // Draw flavor image if available, else default backing
+        if (flavorBitmap != null) {
+            val path = android.graphics.Path().apply {
+                addCircle(cx, cy, innerRadius, android.graphics.Path.Direction.CW)
+            }
+            canvas.save()
+            canvas.clipPath(path)
+            
+            // Draw the bitmap scaled and centered
+            val src = android.graphics.Rect(0, 0, flavorBitmap!!.width, flavorBitmap!!.height)
+            val dst = RectF(cx - innerRadius, cy - innerRadius, cx + innerRadius, cy + innerRadius)
+            canvas.drawBitmap(flavorBitmap!!, src, dst, paint)
+            
+            canvas.restore()
+        } else {
+            // Draw chocolate backing
+            paint.shader = RadialGradient(
+                cx, cy, innerRadius,
+                intArrayOf(Color.parseColor("#8B5A2B"), Color.parseColor("#3B2416")),
+                null, Shader.TileMode.CLAMP
+            )
+            canvas.drawCircle(cx, cy, innerRadius, paint)
+            paint.shader = null
+        }
 
         // Draw double dashed rings with rotation
         canvas.save()
